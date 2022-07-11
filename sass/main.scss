@@ -5,8 +5,8 @@
 
 
 .container{
-    max-height:calc(100% - 112px);
-    height:calc(100% - 112px);
+    max-height:calc(100% - 90px);
+    height:calc(100% - 90px);
     display:flex;
     align-items: stretch;
 }
@@ -16,26 +16,39 @@
     max-height:100%;
     background-color:#000;
     color:#fff;
-    padding:72px 34px 20px 34px;
+    padding:20px 34px 20px 34px;
     overflow:hidden;
+
+    .logo{
+        margin-bottom:20px;
+    }
 
     &-menu{
         .main-menu{
             margin-bottom:30px;
         }
+        img{
+            width:20px;
+        }
         a{
             color:#fff;
             opacity: 0.7;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px;
             line-height: 23px;
             display:inline-block;
-            margin-bottom:22px;
+            margin-bottom:15px;
             width:100%;
+
 
             &.active{
                 opacity: 1;
             }
+
+            &:hover{
+                opacity: 1;
+            }
+
         }
         li{
             display:flex;
@@ -47,10 +60,12 @@
     }
 
     &-category{
-        height:200px;
+        height:250px;
         overflow:auto;
         color:#000;
+        padding-top:10px;
         margin-bottom:10px;
+        border-top:1px solid #222;
 
         &::-webkit-scrollbar {
             width:0px;
@@ -66,8 +81,13 @@
             font-size: 14px;
             line-height: 23px;
             color: #B3B3B3;
-            display:inline-block;
-            margin-bottom:10px;
+            display:block;
+            padding:5px;
+
+            &:hover{
+                color: #fff;
+            }
+
         }
 
     }
@@ -99,6 +119,7 @@
         }
 
         .content-header{
+            z-index:999;
             padding: 20px 40px;
             height:80px;
             position: sticky;
@@ -108,8 +129,11 @@
             align-items: center;
             background-color:rgba(51,51,163,1);
             .arrow-icon{
+                a{
+                    cursor:not-allowed;
+                }
                 &-left{
-                    margin-right:20px;
+                    margin-right:10px;
                 }
             }
 
@@ -123,10 +147,20 @@
                 background: rgba(0, 0, 0, 0.8);
                 border-radius: 40px;
                 padding: 3px 12px 3px 3px;
+                cursor:pointer;
+                transition: all .5s;
+                border:1px solid #121212;
+
                 span{
                     margin-left:10px;
                     margin-right:10px;
                 }
+
+                &:hover{
+                    background:rgba(0, 0, 0, 0.1);
+                    border:1px solid rgba(0, 0, 0, 0.3);
+                }
+
             }
         }
     }
@@ -160,7 +194,24 @@
                 cursor:pointer;
                 span{
                     margin-left:20px;
+                    flex-grow:1;
                 }
+
+                .play-green-hover{
+                    opacity:0;
+                    width:72px;
+                }
+                
+                &:hover{
+                    opacity:1;
+                    transition: all .6s;
+                    background:rgba(255,255,255,0.4);
+                    & > .play-green-hover{
+                        opacity:1;
+                        transition: all .6s;
+                    }
+                }
+
             }
         }
     }
@@ -170,7 +221,7 @@
     }
 
     .album-container{
-        padding:20px 40px;
+        padding:40px 40px;
         .title{
             display:flex;
             justify-content: space-between;
@@ -201,6 +252,25 @@
                 background:rgba(0,0,0,0.3);
                 border-radius: 8px;
                 padding:20px;
+                position: relative;
+                cursor:pointer;
+
+                &:hover{
+                    background:rgba(255,255,255,0.08);
+                    & > .play-green-hover{
+                        opacity:1;
+                    }
+                }
+
+                
+                .play-green-hover{
+                    position:absolute;
+                    width:72px;
+                    top:105px;
+                    right:15px;
+                    opacity:0;
+                    transition: all .4s;
+                }
 
                 h3{
                     font-size: 16px;
@@ -232,7 +302,7 @@
 
 .player{
     width:100%;
-    height:112px;
+    height:90px;
     background-color:#181818;
     padding:10px;
     display:flex;
@@ -271,7 +341,7 @@
             display:flex;
             align-items: center;
             justify-content: center;
-            column-gap: 20px;
+            column-gap:5px;
             img{
                 width:80%;
             }
